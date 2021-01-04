@@ -5,9 +5,13 @@ Plugin that checks if the client is crouched, made for those annoying moments in
 
 Commands: "sm_c", "sm_amicrouched" (bind these to a key for easier usage
 
+
+
 Meanings:
-  "Not Crouched" - Player is not crouched
+
+
+"Not Crouched" - Player is not crouched
   
-  "Half Crouched" - Player is in the process of crouching or uncrouching
+"Half Crouched" - Player is in the process of crouching or uncrouching
   
-  "Fully Crouched" - Player is fully crouched
+"Fully Crouched" - Player is fully crouched
