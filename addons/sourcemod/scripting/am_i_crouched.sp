@@ -16,25 +16,38 @@ public void OnPluginStart()
 {
 	RegConsoleCmd("sm_c", Command_Crouched);
 	RegConsoleCmd("sm_amicrouched", Command_Crouched);
+	LoadTranslations("common.phrases.txt");
 }
 
 public Action Command_Crouched(int client, int args) 
 {
-	if (args > 1) {
-		PrintToChat(client, "\x01[AIC] Incorrect usage, '!c'");
-		return Plugin_Handled;
+	char players[32];
+	int target;
+
+	if(args == 1)
+	{
+		GetCmdArg(1, players, sizeof(players));
+		target = FindTarget(client, players);
+		
+		if(target == -1) {
+			PrintToChat(client, "[AIC] \x0BPlayer not found");
+			return Plugin_Handled;
+		}
+	} else
+	{
+		target = client;
 	}
 	
-	
-	if (GetEntProp(client, Prop_Send, "m_bDucking")) {
+	if (GetEntProp(target, Prop_Send, "m_bDucking")) {
 		PrintToChat(client, "[AIC] \x09Half Crouched");
 		return Plugin_Handled;
-	} else if (GetEntityFlags(client) & FL_DUCKING)
+	} else if (GetEntityFlags(target) & FL_DUCKING)
 	{
 		PrintToChat(client, "[AIC] \x04Fully Crouched");
 		return Plugin_Handled;
-	} else {
+	} else
+	{
 		PrintToChat(client, "[AIC] \x07Not Crouched");
 		return Plugin_Handled;
-	}
+	} 
 }
