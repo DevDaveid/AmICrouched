@@ -3,7 +3,7 @@ Plugin that checks if the client is crouched, made for those annoying moments in
 
 ## Usage
 
-Commands: "sm_c", "sm_amicrouched" (bind these to a key for easier usage
+Commands: "sm_c", "sm_amicrouched" (bind these to a key for easier usage)
 
 
 
